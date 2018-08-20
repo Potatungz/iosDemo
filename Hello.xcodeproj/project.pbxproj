@@ -12,6 +12,7 @@
 		843EA574212A785900E40DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EA572212A785900E40DCA /* Main.storyboard */; };
 		843EA576212A785B00E40DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843EA575212A785B00E40DCA /* Assets.xcassets */; };
 		843EA579212A785B00E40DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EA577212A785B00E40DCA /* LaunchScreen.storyboard */; };
+		843EA581212A811300E40DCA /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA580212A811300E40DCA /* Demo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		843EA575212A785B00E40DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843EA578212A785B00E40DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843EA57A212A785B00E40DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		843EA580212A811300E40DCA /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				843EA575212A785B00E40DCA /* Assets.xcassets */,
 				843EA577212A785B00E40DCA /* LaunchScreen.storyboard */,
 				843EA57A212A785B00E40DCA /* Info.plist */,
+				843EA580212A811300E40DCA /* Demo.swift */,
 			);
 			path = Hello;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				843EA571212A785900E40DCA /* ViewController.swift in Sources */,
 				843EA56F212A785900E40DCA /* AppDelegate.swift in Sources */,
+				843EA581212A811300E40DCA /* Demo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E478694R8D;
 				INFOPLIST_FILE = Hello/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -298,6 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E478694R8D;
 				INFOPLIST_FILE = Hello/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
