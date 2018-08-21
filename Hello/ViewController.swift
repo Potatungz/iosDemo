@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myLabel.text = "Hello World after view load"
+        print("my branch")
     }
 
     @IBAction func myButton(_ sender: Any) {
