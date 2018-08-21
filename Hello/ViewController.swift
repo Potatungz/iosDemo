@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         for eachView in view.subviews {
             eachView.backgroundColor = UIColor.black
             if let label = eachView as? UILabel{
-                label.textColor = UIColor.white
+                label.textColor = UIColor.darkGray
             }
             
             if let textField = eachView as? UITextField{
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
             
             if let button = eachView as? UIButton{
                 button.backgroundColor = UIColor.lightGray
+               
             }
         }
         
