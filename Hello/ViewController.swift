@@ -15,6 +15,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.myLabel.text = "Hello World after view load"
         print("my branch")
+        
+        var a = 10
+        a = a + 1
+        print(a)
+        
+        
     }
 
     @IBAction func myButton(_ sender: Any) {
