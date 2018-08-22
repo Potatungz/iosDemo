@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 
 class TableViewController: UITableViewController {
@@ -29,22 +31,34 @@ class TableViewController: UITableViewController {
                         "Test smoke alarms"]
     
 
+    func fetchData(url: String){
+        
+        Alamofire.request(url, method: .get).responseString(completionHandler: {(response) in
+            
+            print(response.value ?? "no value")
+            
+        }).responseJSON(completionHandler: {(response) in
+            
+            print(response.value ?? "no value")
+            
+        })
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchData(url: "https://jsonplaceholder.typicode.com/todos")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
 
    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -67,21 +81,23 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // let cell = UITableViewCell()
-        let cell = tableView.dequeueReusableCell(withIdentifier: "normalcell")! // แสดงแค่ Row ที่แสดงในหน้าจอไม่เปลือง Memory
+       // var cell = CustomTableViewCell()
+        
+        // แสดงแค่ Row ที่แสดงในหน้าจอไม่เปลือง Memory
+        let cell = tableView.dequeueReusableCell(withIdentifier: "normalcell")! as! CustomTableViewCell
         
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = self.dailyTasks[indexPath.row]
+            cell.lblTask?.text = self.dailyTasks[indexPath.row]
             
         case 1:
-            cell.textLabel?.text = self.weeklyTasks[indexPath.row]
+            cell.lblTask?.text = self.weeklyTasks[indexPath.row]
             
         case 2:
-            cell.textLabel?.text = self.monthlyTasks[indexPath.row]
+            cell.lblTask?.text = self.monthlyTasks[indexPath.row]
             
         default:
-            cell.textLabel?.text = "No Data!"
+            cell.lblTask?.text = "No Data!"
         }
         return cell
     }
@@ -101,6 +117,31 @@ class TableViewController: UITableViewController {
         default:
             return nil
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You just select row \(indexPath.row) on section \(indexPath.section) ")
+        var message = ""
+        switch indexPath.section {
+        case 0:
+            message = dailyTasks[indexPath.row]
+            
+        case 1:
+            message = weeklyTasks[indexPath.row]
+            
+        case 3:
+            message = monthlyTasks[indexPath.row]
+            
+        default:
+            message = ("")
+        }
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        destination.message = message
+        self.navigationController?.pushViewController(destination, animated: true)
+        
     }
     
 
