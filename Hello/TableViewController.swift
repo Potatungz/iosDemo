@@ -49,7 +49,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         fetchData(url: "https://jsonplaceholder.typicode.com/todos")
