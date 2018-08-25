@@ -168,7 +168,7 @@
                                             <rect key="frame" x="20" y="5" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbO-ne-nVX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbO-ne-nVX">
                                             <rect key="frame" x="90" y="10" width="269" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -188,6 +188,9 @@
                             <outlet property="delegate" destination="9wY-g9-Ghz" id="Xrl-DJ-VS5"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tbTask" destination="j1S-c1-DZI" id="CHA-Xa-usS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yk-vc-QL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

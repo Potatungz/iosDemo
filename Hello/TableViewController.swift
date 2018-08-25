@@ -11,10 +11,15 @@ import Alamofire
 
 
 
+
 class TableViewController: UITableViewController {
     
+    // ลากในส่วนTable view มาใส่
+    @IBOutlet var tbTask: UITableView!
+    
+    
     //  Create [String] arrays of tasks
-    let dailyTasks = ["Check all windows",
+    let dailyTasks = ["Check all windows other string sssssssssssssssome text",
                       "Check all doors",
                       "Is the boiler fueled?",
                       "Check the mailbox",
@@ -39,7 +44,15 @@ class TableViewController: UITableViewController {
             
         }).responseJSON(completionHandler: {(response) in
             
-            print(response.value ?? "no value")
+            let decoder = JSONDecoder()
+            let products: [Product]
+            do{
+                products = try decoder.decode([Product].self, from: response.data!)
+                print(products[0].productName)
+                print(products[0].comments[0].message)
+            }catch{
+                print("ERROR: Can't decode json data")
+            }
             
         })
         
@@ -47,12 +60,17 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Automatic change dimension
+        self.tbTask.estimatedRowHeight = 43
+        self.tbTask.rowHeight = UITableViewAutomaticDimension
+        print(tbTask)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fetchData(url: "https://jsonplaceholder.typicode.com/todos")
+        fetchData(url: "http://localhost:3000/products")
     }
 
     override func didReceiveMemoryWarning() {

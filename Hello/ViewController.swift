@@ -14,11 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myLabel.text = "Hello World after view load"
-        print("my branch")
+//        print("my branch")
         
-        var a = 10
-        a = a + 1
-        print(a)
+//        var a = 10
+//        a = a + 1
+//        print(a)
         
         
     }

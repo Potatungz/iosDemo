@@ -15,6 +15,7 @@
 		843EA576212A785B00E40DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843EA575212A785B00E40DCA /* Assets.xcassets */; };
 		843EA579212A785B00E40DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EA577212A785B00E40DCA /* LaunchScreen.storyboard */; };
 		843EA581212A811300E40DCA /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA580212A811300E40DCA /* Demo.swift */; };
+		845DAB202131117300523BF1 /* product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DAB1F2131117300523BF1 /* product.swift */; };
 		8499E654212D0FA7005FA715 /* myViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E653212D0FA7005FA715 /* myViewController.swift */; };
 		8499E656212D1077005FA715 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E655212D1077005FA715 /* secondViewController.swift */; };
 		8499E658212D1EC1005FA715 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E657212D1EC1005FA715 /* DetailViewController.swift */; };
@@ -32,6 +33,7 @@
 		843EA578212A785B00E40DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843EA57A212A785B00E40DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843EA580212A811300E40DCA /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
+		845DAB1F2131117300523BF1 /* product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product.swift; sourceTree = "<group>"; };
 		8499E653212D0FA7005FA715 /* myViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myViewController.swift; sourceTree = "<group>"; };
 		8499E655212D1077005FA715 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 		8499E657212D1EC1005FA715 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				8499E653212D0FA7005FA715 /* myViewController.swift */,
 				8499E655212D1077005FA715 /* secondViewController.swift */,
 				8499E657212D1EC1005FA715 /* DetailViewController.swift */,
+				845DAB1F2131117300523BF1 /* product.swift */,
 			);
 			path = Hello;
 			sourceTree = "<group>";
@@ -180,15 +183,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Hello-checkManifestLockResult.txt",
 			);
@@ -202,15 +201,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hello/Pods-Hello-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
@@ -232,6 +227,7 @@
 				843EA56F212A785900E40DCA /* AppDelegate.swift in Sources */,
 				843EA581212A811300E40DCA /* Demo.swift in Sources */,
 				8499E654212D0FA7005FA715 /* myViewController.swift in Sources */,
+				845DAB202131117300523BF1 /* product.swift in Sources */,
 				8404F1E8212BCABE00F1FAAE /* TableViewController.swift in Sources */,
 				8499E658212D1EC1005FA715 /* DetailViewController.swift in Sources */,
 			);
