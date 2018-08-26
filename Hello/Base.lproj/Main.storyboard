@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sGH-Jl-eP4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MZp-eM-70q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -75,6 +75,55 @@
             </objects>
             <point key="canvasLocation" x="1676" y="780"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="dlD-uc-IzC">
+            <objects>
+                <viewController id="l0j-e5-CZB" customClass="LoginViewController" customModule="Hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XTB-xE-wjW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ViA-hv-Dkj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xPi-Df-s0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="-631"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="HKj-Un-amb">
+            <objects>
+                <viewController id="MZp-eM-70q" customClass="SettingsViewController" customModule="Hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Mx-Wf-KB0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SyA-SW-HOz">
+                                <rect key="frame" x="286" y="87" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="doTogglePrivate:" destination="MZp-eM-70q" eventType="valueChanged" id="clL-fw-6CB"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Private" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efv-Go-7cg">
+                                <rect key="frame" x="42" y="88" width="72" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mes-Xa-G1c"/>
+                    </view>
+                    <connections>
+                        <outlet property="switchPrivate" destination="SyA-SW-HOz" id="Xmr-pH-bFD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYH-fS-NDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2402" y="-629"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -148,7 +197,7 @@
             </objects>
             <point key="canvasLocation" x="876" y="81.409295352323838"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="NgC-IH-F4T">
             <objects>
                 <tableViewController id="9wY-g9-Ghz" customClass="TableViewController" customModule="Hello" customModuleProvider="target" sceneMemberID="viewController">
@@ -188,8 +237,17 @@
                             <outlet property="delegate" destination="9wY-g9-Ghz" id="Xrl-DJ-VS5"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="XCt-Ef-Ub3">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="LuB-xq-6tt">
+                            <connections>
+                                <action selector="doEditable:" destination="9wY-g9-Ghz" id="eDU-mq-Rb4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tbTask" destination="j1S-c1-DZI" id="CHA-Xa-usS"/>
+                        <outlet property="tblTask" destination="j1S-c1-DZI" id="Fc7-AR-b2N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yk-vc-QL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,7 +284,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4Nr-yf-XgN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sGH-Jl-eP4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ViewController" automaticallyAdjustsScrollViewInsets="NO" id="sGH-Jl-eP4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WgV-cX-knF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

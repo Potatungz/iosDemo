@@ -15,8 +15,17 @@ import Alamofire
 class TableViewController: UITableViewController {
     
     // ลากในส่วนTable view มาใส่
-    @IBOutlet var tbTask: UITableView!
+    @IBOutlet var tblTask: UITableView!
     
+    // add button to top bar navigation
+    @IBAction func doEditable(_ sender: Any){
+     
+        self.tblTask.isEditing = true
+        self.tblTask.setEditing(true, animated: false)
+    }
+    
+    // Creat ActivityIndicatorView
+    let activityIndicatorView = UIActivityIndicatorView()
     
     //  Create [String] arrays of tasks
     let dailyTasks = ["Check all windows other string sssssssssssssssome text",
@@ -35,6 +44,10 @@ class TableViewController: UITableViewController {
                         "Test motion detectors",
                         "Test smoke alarms"]
     
+    var products: [Product] = []
+    static let SEVICEURL = "http://localhost:3000/products"
+    
+    
 
     func fetchData(url: String){
         
@@ -45,11 +58,12 @@ class TableViewController: UITableViewController {
         }).responseJSON(completionHandler: {(response) in
             
             let decoder = JSONDecoder()
-            let products: [Product]
             do{
-                products = try decoder.decode([Product].self, from: response.data!)
-                print(products[0].productName)
-                print(products[0].comments[0].message)
+                self.products = try decoder.decode([Product].self, from: response.data!)
+                // reload data table
+                self.tblTask.reloadData()
+                //print(products[0].productName)
+                //print(products[0].comments[0].message)
             }catch{
                 print("ERROR: Can't decode json data")
             }
@@ -62,15 +76,23 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Automatic change dimension
-        self.tbTask.estimatedRowHeight = 43
-        self.tbTask.rowHeight = UITableViewAutomaticDimension
-        print(tbTask)
+        self.tblTask.estimatedRowHeight = 43
+        self.tblTask.rowHeight = UITableViewAutomaticDimension
+        print(tblTask)
+        
+        // กำหนดต่ำแหน่งให้อยู่ตรงกลางของview
+        activityIndicatorView.center = self.view.center
+        //ให้ซ่อนเมื่อหยุดการทำงาน
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.activityIndicatorViewStyle = .gray
+        
+        view.addSubview(activityIndicatorView)
     }
     
+    //
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        fetchData(url: "http://localhost:3000/products")
+        fetchData(url: TableViewController.SEVICEURL)
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,19 +100,24 @@ class TableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // Add Section on tableview
    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
+            
         case 0:
-            return self.dailyTasks.count
+            return self.products.count
             
         case 1:
+            return self.dailyTasks.count
+            
+        case 2:
             return self.weeklyTasks.count
 
-        case 2:
+        case 3:
             return self.monthlyTasks.count
 
         default:
@@ -105,13 +132,18 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "normalcell")! as! CustomTableViewCell
         
         switch indexPath.section {
+            
         case 0:
-            cell.lblTask?.text = self.dailyTasks[indexPath.row]
+            // หากมีจะเปิดข้อมูลใน ViewCellใส่ค่าเพิ่มลงในนี้
+            cell.lblTask?.text = self.products[indexPath.row].productName
             
         case 1:
-            cell.lblTask?.text = self.weeklyTasks[indexPath.row]
+            cell.lblTask?.text = self.dailyTasks[indexPath.row]
             
         case 2:
+            cell.lblTask?.text = self.weeklyTasks[indexPath.row]
+            
+        case 3:
             cell.lblTask?.text = self.monthlyTasks[indexPath.row]
             
         default:
@@ -124,12 +156,15 @@ class TableViewController: UITableViewController {
         switch section {
             
         case 0:
-            return "Dairy Task"
+            return "Product Name"
             
         case 1:
-            return "Weekly Task"
+            return "Dairy Task"
             
         case 2:
+            return "Weekly Task"
+            
+        case 3:
             return "Monthly Task"
             
         default:
@@ -141,10 +176,14 @@ class TableViewController: UITableViewController {
         print("You just select row \(indexPath.row) on section \(indexPath.section) ")
         var message = ""
         switch indexPath.section {
+            
         case 0:
-            message = dailyTasks[indexPath.row]
+            message = self.products[indexPath.row].productName
             
         case 1:
+            message = dailyTasks[indexPath.row]
+            
+        case 2:
             message = weeklyTasks[indexPath.row]
             
         case 3:
@@ -159,6 +198,7 @@ class TableViewController: UITableViewController {
         
         destination.message = message
         self.navigationController?.pushViewController(destination, animated: true)
+        
         
     }
     
@@ -181,18 +221,42 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            self.activityIndicatorView.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            self.removeData(id: products[indexPath.row].id, handler: { (response) in
+    
+                self.products.remove(at: indexPath.row)
+                // Delete the row from the data source
+                
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.activityIndicatorView.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+    
+            })
+        
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
+ 
+    func removeData(id: Int, handler: @escaping((DataResponse<Any>) -> Void)){
+        Alamofire.request("\(TableViewController.SEVICEURL)/ \(id+1)",  method: .delete).responseJSON(completionHandler: handler)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        // Delete for Section 0
+        if(indexPath.section == 0){
+            return true
+        }else{
+            return false
+        }
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

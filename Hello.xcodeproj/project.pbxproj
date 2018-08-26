@@ -15,6 +15,9 @@
 		843EA576212A785B00E40DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843EA575212A785B00E40DCA /* Assets.xcassets */; };
 		843EA579212A785B00E40DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EA577212A785B00E40DCA /* LaunchScreen.storyboard */; };
 		843EA581212A811300E40DCA /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA580212A811300E40DCA /* Demo.swift */; };
+		8441FD27213259240015BBED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FD26213259240015BBED /* LoginViewController.swift */; };
+		8441FD2E213286210015BBED /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FD2D213286210015BBED /* SettingsViewController.swift */; };
+		8441FD3121328D570015BBED /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FD3021328D570015BBED /* File.swift */; };
 		845DAB202131117300523BF1 /* product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DAB1F2131117300523BF1 /* product.swift */; };
 		8499E654212D0FA7005FA715 /* myViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E653212D0FA7005FA715 /* myViewController.swift */; };
 		8499E656212D1077005FA715 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E655212D1077005FA715 /* secondViewController.swift */; };
@@ -33,6 +36,9 @@
 		843EA578212A785B00E40DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843EA57A212A785B00E40DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843EA580212A811300E40DCA /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
+		8441FD26213259240015BBED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8441FD2D213286210015BBED /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8441FD3021328D570015BBED /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		845DAB1F2131117300523BF1 /* product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product.swift; sourceTree = "<group>"; };
 		8499E653212D0FA7005FA715 /* myViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myViewController.swift; sourceTree = "<group>"; };
 		8499E655212D1077005FA715 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
@@ -83,21 +89,48 @@
 		843EA56D212A785900E40DCA /* Hello */ = {
 			isa = PBXGroup;
 			children = (
+				8441FD2F21328D390015BBED /* Extensions */,
+				8441FD2C213285B30015BBED /* Controllers */,
+				8441FD2B2132859B0015BBED /* Models */,
 				843EA56E212A785900E40DCA /* AppDelegate.swift */,
-				843EA570212A785900E40DCA /* ViewController.swift */,
 				843EA572212A785900E40DCA /* Main.storyboard */,
 				843EA575212A785B00E40DCA /* Assets.xcassets */,
 				843EA577212A785B00E40DCA /* LaunchScreen.storyboard */,
 				843EA57A212A785B00E40DCA /* Info.plist */,
+			);
+			path = Hello;
+			sourceTree = "<group>";
+		};
+		8441FD2B2132859B0015BBED /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				843EA580212A811300E40DCA /* Demo.swift */,
+				845DAB1F2131117300523BF1 /* product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8441FD2C213285B30015BBED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				843EA570212A785900E40DCA /* ViewController.swift */,
 				8404F1E7212BCABE00F1FAAE /* TableViewController.swift */,
 				8404F1E9212C043E00F1FAAE /* CustomTableViewCell.swift */,
 				8499E653212D0FA7005FA715 /* myViewController.swift */,
 				8499E655212D1077005FA715 /* secondViewController.swift */,
 				8499E657212D1EC1005FA715 /* DetailViewController.swift */,
-				845DAB1F2131117300523BF1 /* product.swift */,
+				8441FD26213259240015BBED /* LoginViewController.swift */,
+				8441FD2D213286210015BBED /* SettingsViewController.swift */,
 			);
-			path = Hello;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8441FD2F21328D390015BBED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8441FD3021328D570015BBED /* File.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B4438E5B3BA6BA5AA58F9CFC /* Pods */ = {
@@ -204,10 +237,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hello/Pods-Hello-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -222,13 +261,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				843EA571212A785900E40DCA /* ViewController.swift in Sources */,
+				8441FD3121328D570015BBED /* File.swift in Sources */,
 				8499E656212D1077005FA715 /* secondViewController.swift in Sources */,
+				8441FD2E213286210015BBED /* SettingsViewController.swift in Sources */,
 				8404F1EA212C043E00F1FAAE /* CustomTableViewCell.swift in Sources */,
 				843EA56F212A785900E40DCA /* AppDelegate.swift in Sources */,
 				843EA581212A811300E40DCA /* Demo.swift in Sources */,
 				8499E654212D0FA7005FA715 /* myViewController.swift in Sources */,
 				845DAB202131117300523BF1 /* product.swift in Sources */,
 				8404F1E8212BCABE00F1FAAE /* TableViewController.swift in Sources */,
+				8441FD27213259240015BBED /* LoginViewController.swift in Sources */,
 				8499E658212D1EC1005FA715 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,12 +9,18 @@
 import Foundation
 
 struct Product: Decodable {
+    let id: Int
     let productCode: String
     let productName: String
     let price: String
     let rating: Int?
     let comments: [Comment]
 }
+
+//private enum CodingKeys: String, CodingKey {
+//    case ProductCode = "product_code"
+//    case ProductName, price, rating
+//}
 
 struct Comment: Decodable {
     let message: String
