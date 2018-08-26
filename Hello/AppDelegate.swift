@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
          FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // New Object
+        let realm = try! Realm()
+        
+        let task = Tasks()
+        task.name = "Test Realm DB"
+        task.desc = "First time to use Realm DB"
+        
+        //Add to Collection
+        do{
+            try realm.write{
+                realm.add(task)
+            }
+        }catch{
+            print(error.localizedDescription)
+        }
+        
+        // Retrieve all task
+        let allTask = realm.objects(Tasks.self)
+        
+        // Edit first task
+        if let firstTask = allTask.first{
+            try! realm.write{
+                firstTask.name = "New task name"
+            }
+        }
+        
+        // Loop all task
+        for task in allTask{
+            print("Task name: \(task.name)")
+        }
         
         return true
     }

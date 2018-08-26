@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8404F1E8212BCABE00F1FAAE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404F1E7212BCABE00F1FAAE /* TableViewController.swift */; };
 		8404F1EA212C043E00F1FAAE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404F1E9212C043E00F1FAAE /* CustomTableViewCell.swift */; };
+		840EE1DE21329E82003F3D82 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE1DD21329E82003F3D82 /* Tasks.swift */; };
+		840EE1E02132A73D003F3D82 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840EE1DF2132A73D003F3D82 /* GameKit.framework */; };
+		840EE1E22132A745003F3D82 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840EE1E12132A745003F3D82 /* StoreKit.framework */; };
 		843EA56F212A785900E40DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA56E212A785900E40DCA /* AppDelegate.swift */; };
 		843EA571212A785900E40DCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA570212A785900E40DCA /* ViewController.swift */; };
 		843EA574212A785900E40DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EA572212A785900E40DCA /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 /* Begin PBXFileReference section */
 		8404F1E7212BCABE00F1FAAE /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		8404F1E9212C043E00F1FAAE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		840EE1DD21329E82003F3D82 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		840EE1DF2132A73D003F3D82 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		840EE1E12132A745003F3D82 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		843EA56B212A785900E40DCA /* Hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843EA56E212A785900E40DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		843EA570212A785900E40DCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840EE1E22132A745003F3D82 /* StoreKit.framework in Frameworks */,
 				BD392D917ABC82F81C45D38E /* Pods_Hello.framework in Frameworks */,
+				840EE1E02132A73D003F3D82 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,8 @@
 		5E313D68EC54BD27BBA4D9FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				840EE1E12132A745003F3D82 /* StoreKit.framework */,
+				840EE1DF2132A73D003F3D82 /* GameKit.framework */,
 				A914E0B21CBA35CFD14143EC /* Pods_Hello.framework */,
 			);
 			name = Frameworks;
@@ -106,6 +116,7 @@
 			children = (
 				843EA580212A811300E40DCA /* Demo.swift */,
 				845DAB1F2131117300523BF1 /* product.swift */,
+				840EE1DD21329E82003F3D82 /* Tasks.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +187,14 @@
 				TargetAttributes = {
 					843EA56A212A785900E40DCA = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -240,6 +259,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -247,6 +268,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -270,6 +293,7 @@
 				8499E654212D0FA7005FA715 /* myViewController.swift in Sources */,
 				845DAB202131117300523BF1 /* product.swift in Sources */,
 				8404F1E8212BCABE00F1FAAE /* TableViewController.swift in Sources */,
+				840EE1DE21329E82003F3D82 /* Tasks.swift in Sources */,
 				8441FD27213259240015BBED /* LoginViewController.swift in Sources */,
 				8499E658212D1EC1005FA715 /* DetailViewController.swift in Sources */,
 			);

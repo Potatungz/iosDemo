@@ -8,5 +8,6 @@ target 'Hello' do
   # Pods for Hello
   pod 'Alamofire', '~> 4.7'
   pod 'FBSDKLoginKit'
+  pod 'RealmSwift'
 
 end
