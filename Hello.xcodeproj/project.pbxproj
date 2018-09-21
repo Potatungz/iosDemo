@@ -25,6 +25,7 @@
 		8499E654212D0FA7005FA715 /* myViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E653212D0FA7005FA715 /* myViewController.swift */; };
 		8499E656212D1077005FA715 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E655212D1077005FA715 /* secondViewController.swift */; };
 		8499E658212D1EC1005FA715 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499E657212D1EC1005FA715 /* DetailViewController.swift */; };
+		9BE220FE2146493100220CE7 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE220FD2146493100220CE7 /* Customer.swift */; };
 		BD392D917ABC82F81C45D38E /* Pods_Hello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A914E0B21CBA35CFD14143EC /* Pods_Hello.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		8499E653212D0FA7005FA715 /* myViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myViewController.swift; sourceTree = "<group>"; };
 		8499E655212D1077005FA715 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 		8499E657212D1EC1005FA715 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9BE220FD2146493100220CE7 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		A914E0B21CBA35CFD14143EC /* Pods_Hello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06520E44CB7AD5CF115A3A2 /* Pods-Hello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hello/Pods-Hello.release.xcconfig"; sourceTree = "<group>"; };
 		C28D5B048C34CDD8FFFDADF1 /* Pods-Hello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hello/Pods-Hello.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				843EA580212A811300E40DCA /* Demo.swift */,
 				845DAB1F2131117300523BF1 /* product.swift */,
 				840EE1DD21329E82003F3D82 /* Tasks.swift */,
+				9BE220FD2146493100220CE7 /* Customer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843EA571212A785900E40DCA /* ViewController.swift in Sources */,
+				9BE220FE2146493100220CE7 /* Customer.swift in Sources */,
 				8441FD3121328D570015BBED /* File.swift in Sources */,
 				8499E656212D1077005FA715 /* secondViewController.swift in Sources */,
 				8441FD2E213286210015BBED /* SettingsViewController.swift in Sources */,

@@ -43,27 +43,45 @@ class TableViewController: UITableViewController {
     let monthlyTasks = ["Test security alarm",
                         "Test motion detectors",
                         "Test smoke alarms"]
+    let movieTask = ["up", "donw", "Right", "Left"]
     
-    var products: [Product] = []
-    static let SEVICEURL = "http://localhost:3000/products"
+    //var products: [Product] = []
+     var customers: [Customer] = []
+     //static let SEVICEURL = "http://localhost:3000/products"
+     //static let SEVICEURL = "http://131.21.7.46/bccapplication/results.json"
+    static let SEVICEURL = "http://131.21.7.46/bccapplication/select_adrc.php"
+    
     
     
 
     func fetchData(url: String){
         
-        Alamofire.request(url, method: .get).responseString(completionHandler: {(response) in
-            
+        Alamofire.request(url, method: .get).responseString(completionHandler: {(response ) in
             print(response.value ?? "no value")
+            
+            // Check Data is nil
+            if(response.value == nil) {
+                print("Data is Nil")
+            }else{
+                print("Response Data:",response.data!)
+                
+            }
             
         }).responseJSON(completionHandler: {(response) in
             
-            let decoder = JSONDecoder()
+            //let decoder = JSONDecoder()
             do{
-                self.products = try decoder.decode([Product].self, from: response.data!)
+                //self.products = try decoder.decode([Product].self, from: response.data!)
+                //self.customers = try decoder.decode([Customer].self, from: response.data!)
+                self.customers = try JSONDecoder().decode([Customer].self, from: response.data!)
                 // reload data table
+                
                 self.tblTask.reloadData()
-                //print(products[0].productName)
+                print(self.customers[0].NAME1)
+                //print(self.products[0].productName)
                 //print(products[0].comments[0].message)
+                
+                
             }catch{
                 print("ERROR: Can't decode json data")
             }
@@ -102,14 +120,15 @@ class TableViewController: UITableViewController {
 
     // Add Section on tableview
    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
             
         case 0:
-            return self.products.count
+            //return self.products.count
+            return self.customers.count
             
         case 1:
             return self.dailyTasks.count
@@ -119,6 +138,9 @@ class TableViewController: UITableViewController {
 
         case 3:
             return self.monthlyTasks.count
+            
+        case 4:
+            return self.movieTask.count
 
         default:
             return 0
@@ -135,7 +157,8 @@ class TableViewController: UITableViewController {
             
         case 0:
             // หากมีจะเปิดข้อมูลใน ViewCellใส่ค่าเพิ่มลงในนี้
-            cell.lblTask?.text = self.products[indexPath.row].productName
+            //cell.lblTask?.text = self.products[indexPath.row].productCode
+            cell.lblTask?.text = self.customers[indexPath.row].ADDRNUMBER
             
         case 1:
             cell.lblTask?.text = self.dailyTasks[indexPath.row]
@@ -145,6 +168,9 @@ class TableViewController: UITableViewController {
             
         case 3:
             cell.lblTask?.text = self.monthlyTasks[indexPath.row]
+            
+        case 4:
+            cell.lblTask?.text = self.movieTask[indexPath.row]
             
         default:
             cell.lblTask?.text = "No Data!"
@@ -157,6 +183,7 @@ class TableViewController: UITableViewController {
             
         case 0:
             return "Product Name"
+            //return "Name Task"
             
         case 1:
             return "Dairy Task"
@@ -166,6 +193,9 @@ class TableViewController: UITableViewController {
             
         case 3:
             return "Monthly Task"
+            
+        case 4:
+            return "Movie Task"
             
         default:
             return nil
@@ -178,7 +208,8 @@ class TableViewController: UITableViewController {
         switch indexPath.section {
             
         case 0:
-            message = self.products[indexPath.row].productName
+          //message = self.products[indexPath.row].productCode
+            message = (self.customers[indexPath.row].ADDRNUMBER)!
             
         case 1:
             message = dailyTasks[indexPath.row]
@@ -188,6 +219,9 @@ class TableViewController: UITableViewController {
             
         case 3:
             message = monthlyTasks[indexPath.row]
+            
+        case 4:
+            message = movieTask[indexPath.row]
             
         default:
             message = ("")
@@ -228,9 +262,11 @@ class TableViewController: UITableViewController {
             
             self.activityIndicatorView.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
-            self.removeData(id: products[indexPath.row].id, handler: { (response) in
+            //self.removeData(id: products[indexPath.row].id, handler: { (response) in
+            self.removeData(id: customers[indexPath.row].id!, handler: { (response) in
     
-                self.products.remove(at: indexPath.row)
+                //self.products.remove(at: indexPath.row)
+                self.customers.remove(at: indexPath.row)
                 // Delete the row from the data source
                 
                 tableView.deleteRows(at: [indexPath], with: .fade)

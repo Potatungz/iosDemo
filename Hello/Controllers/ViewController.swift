@@ -22,7 +22,14 @@ class ViewController: UIViewController {
         
         
     }
-
+    
+    @IBAction func doSetting(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        
+        self.navigationController?.pushViewController(destination, animated: true)
+    }
+    
     @IBAction func myButton(_ sender: Any) {
         self.myLabel.text = "Hello \(self.textName.text!)"
         
@@ -48,6 +55,7 @@ class ViewController: UIViewController {
         
     }
 
+    
     
     @IBOutlet weak var textName: UITextField!
     @IBOutlet weak var myLabel: UILabel!

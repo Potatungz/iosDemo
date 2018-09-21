@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MZp-eM-70q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sGH-Jl-eP4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -93,7 +93,7 @@
         <!--Settings View Controller-->
         <scene sceneID="HKj-Un-amb">
             <objects>
-                <viewController id="MZp-eM-70q" customClass="SettingsViewController" customModule="Hello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="MZp-eM-70q" customClass="SettingsViewController" customModule="Hello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Mx-Wf-KB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,7 +187,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bkW-Tf-Une"/>
+                    <navigationItem key="navigationItem" id="bkW-Tf-Une">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="10v-WE-IVB">
+                            <connections>
+                                <action selector="doSetting:" destination="BYZ-38-t0r" id="W7S-pV-sBL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myLabel" destination="K0Z-ES-UmJ" id="BzY-4K-IPb"/>
                         <outlet property="textName" destination="SvP-qE-eo0" id="ZWp-tC-Egi"/>
